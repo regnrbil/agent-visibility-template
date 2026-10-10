@@ -1,43 +1,50 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "agent-visibility-template",
-	"main": "./src/worker/index.ts",
-	"compatibility_date": "2025-10-08",
-	"upload_source_maps": true,
-	"observability": {
-		"enabled": true
-	},
-	"assets": {
-		"directory": "./dist/client",
-		"not_found_handling": "single-page-application",
-		"run_worker_first": [
-			"/.well-known/web-bot-auth/*",
-			"/api",
-			"/api/*",
-			"/index.json",
-			"/jsonld",
-			"/llms-full.txt",
-			"/llms.txt",
-			"/robots.txt",
-			"/*.jsonld",
-			"/*.md"
-		]
-	},
-	"ai": {
-		"binding": "AI"
-	},
-	"kv_namespaces": [
-		{
-			"binding": "VISIBILITY_CACHE",
-			"id": "cda97b4b126f4e7a940b90a200db6a86"
-		}
-	],
-	"vars": {
-		"SITE_NAME": "Acme Docs",
-		"SITE_DESCRIPTION": "Product documentation for the Acme platform.",
-		"AI_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
-		"ENRICHMENT_CACHE_TTL": "3600",
-		"CONTENT_SIGNAL": "ai-input=yes, search=yes, ai-train=no",
-		"ENABLE_WEB_BOT_AUTH": "false"
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agent-visibility-template",
+  "main": "./src/worker/index.ts",
+  "compatibility_date": "2025-10-08",
+  "upload_source_maps": true,
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/.well-known/web-bot-auth/*",
+      "/api",
+      "/api/*",
+      "/index.json",
+      "/jsonld",
+      "/llms-full.txt",
+      "/llms.txt",
+      "/robots.txt",
+      "/*.jsonld",
+      "/*.md"
+    ]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "VISIBILITY_CACHE",
+      "id": "cda97b4b126f4e7a940b90a200db6a86"
+    }
+  ],
+  "vars": {
+    "SITE_NAME": "Acme Docs",
+    "SITE_DESCRIPTION": "Product documentation for the Acme platform.",
+    "AI_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "ENRICHMENT_CACHE_TTL": "3600",
+    "CONTENT_SIGNAL": "ai-input=yes, search=yes, ai-train=no",
+    "ENABLE_WEB_BOT_AUTH": "false",
+    "ss-no": "http://10.0.0.33:30081/login/"
+  },
+  "hyperdrive": [
+    {
+      "binding": "postgres-db-no",
+      "id": "286e6caa9d9542799df16989c5d04d54"
+    }
+  ]
 }
