@@ -96,7 +96,6 @@ export async function enrichResource(
 				{ role: "system", content: SYSTEM_PROMPT },
 				{ role: "user", content: trimmed },
 			],
-			max_tokens: 1200,
 		})) as AiResult;
 
 		const parsed =
