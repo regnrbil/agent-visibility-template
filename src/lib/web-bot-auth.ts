@@ -139,7 +139,11 @@ export async function verifyAgentIdentity(
 
 	try {
 		// Extract the raw signature bytes for this label.
-		const sigMatch = sigHeader.match(new RegExp(`${parsed.label}=:([^:]+):`));
+		const signatureEntry = sigHeader.split(",").map((part) => part.trim())
+			.find((part) => part.startsWith(`${parsed.label}=`));
+		const sigMatch = signatureEntry
+			?.slice(parsed.label.length + 1)
+			.match(/^:([A-Za-z0-9+/=_-]+):(?:\\s*;.*)?$/);
 		if (!sigMatch) {
 			return {
 				signed: true,
