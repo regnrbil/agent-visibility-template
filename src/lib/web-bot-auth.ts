@@ -143,7 +143,7 @@ export async function verifyAgentIdentity(
 			.find((part) => part.startsWith(`${parsed.label}=`));
 		const sigMatch = signatureEntry
 			?.slice(parsed.label.length + 1)
-			.match(/^:([A-Za-z0-9+/=_-]+):(?:\\s*;.*)?$/);
+			.match(/^:([A-Za-z0-9+/=_-]+):(?:\s*;.*)?$/);
 		if (!sigMatch) {
 			return {
 				signed: true,
