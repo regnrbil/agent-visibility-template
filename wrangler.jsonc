@@ -46,5 +46,24 @@
       "binding": "postgres-db-no",
       "id": "286e6caa9d9542799df16989c5d04d54"
     }
-  ]
+  ],
+  "previews": {
+    "vars": {
+      "SITE_NAME": "Acme Docs",
+      "SITE_DESCRIPTION": "Product documentation for the Acme platform.",
+      "AI_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "ENRICHMENT_CACHE_TTL": "3600",
+      "CONTENT_SIGNAL": "ai-input=yes, search=yes, ai-train=no",
+      "ENABLE_WEB_BOT_AUTH": "false"
+    },
+    "ai": {
+      "binding": "AI"
+    },
+    "hyperdrive": [
+      {
+        "binding": "postgres-db-no",
+        "id": "3fa3ece3876348bd8e854d45bf650d8c"
+      }
+    ]
+  }
 }
